@@ -1,1 +1,8 @@
-.this/test/uni
+---
+- hosts: test
+  gather_facts: yes
+  vars:
+    source: official repo
+
+  roles:
+  - role: Packer
