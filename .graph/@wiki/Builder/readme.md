@@ -8,4 +8,9 @@ https://www.packer.io/plugins
 - https://www.packer.io/plugins/builders/lxd
 - https://www.packer.io/plugins/builders/openstack
 - https://www.packer.io/plugins/builders/proxmox
+- https://www.packer.io/plugins/builders/qemu
 - https://www.packer.io/plugins/builders/virtualbox
+
+
+## Community
+https://github.com/goffinet/packer-kvm
