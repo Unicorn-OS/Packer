@@ -1,0 +1,3 @@
+[submodule "src/packer-templates"]
+	path = src/packer-templates
+	url = https://github.com/ruzickap/packer-templates.git
