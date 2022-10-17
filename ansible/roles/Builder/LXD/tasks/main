@@ -1,0 +1,6 @@
+---
+
+- include_tasks: init
+  vars:
+    plugin: lxd
+    creates: "packer-plugin-{{plugin}}"

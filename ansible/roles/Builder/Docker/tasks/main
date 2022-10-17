@@ -1,0 +1,6 @@
+---
+
+- include_tasks: init
+  vars:
+    plugin: docker
+    creates: "packer-plugin-{{plugin}}"

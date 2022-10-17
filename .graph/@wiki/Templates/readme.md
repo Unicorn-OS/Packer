@@ -1,1 +1,1 @@
-https://github.com/ruzickap/packer-templates
+templates: https://github.com/ruzickap/packer-templates/

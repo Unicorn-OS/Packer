@@ -1,16 +1,16 @@
 ---
 - name: Copy template
   ansible.builtin.copy:
-    src: packer_tutorial.hcl
+    src: "{{plugin}}.hcl.json"
     dest: "/home/{{ansible_user}}/"
 
 - name: Initialize Packer configuration
   command: packer init .
   args:
     chdir: "/home/{{ansible_user}}/"
-    creates: "/home/{{ansible_user}}/.config/packer/plugins/github.com/hashicorp/docker/packer-plugin-docker*"
+    creates: "/home/{{ansible_user}}/.config/packer/plugins/github.com/hashicorp/{{plugin}}/{{creates}}*"
 
 - name: Remove template
   ansible.builtin.file:
-    path: "/home/{{ansible_user}}/packer_tutorial.hcl"
+    path: "/home/{{ansible_user}}/{{plugin}}.hcl.json"
     state: absent
