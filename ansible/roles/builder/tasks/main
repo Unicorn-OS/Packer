@@ -1,0 +1,10 @@
+---
+- include_tasks: get
+
+- include_role:
+    name: builder/Docker
+  when: ansible_system == "Linux"
+
+- include_role:
+    name: builder/KVM
+  when: ansible_system == "Linux" and virt_host_type == "kvm"

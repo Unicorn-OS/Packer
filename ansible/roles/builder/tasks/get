@@ -1,0 +1,5 @@
+---
+
+- name: get
+  command: which qemu_kvm
+  register: virt_host_type == "kvm"
