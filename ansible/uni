@@ -3,6 +3,8 @@
   gather_facts: yes
   vars:
     source: official repo
+    autoconfg: true # Detect host functionality and install plugins automatically!
 
   roles:
-  - role: Packer
+  # - Packer
+  - Builder

@@ -13,4 +13,5 @@ https://www.packer.io/plugins
 
 
 ## Community
+https://www.packer.io/plugins/builders/openstack
 https://github.com/goffinet/packer-kvm

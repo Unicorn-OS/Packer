@@ -1,5 +1,23 @@
 ---
 
-- name: get
-  command: which qemu_kvm
-  register: virt_host_type == "kvm"
+- name: get KVM
+  command: "which qemu-system-{{ansible_architecture}}"
+  register: functionality_kvm
+  failed_when: false
+
+- name: get VirtualBox
+  command: "which virtualbox"
+  register: functionality_virtualbox
+  failed_when: false
+
+- set_fact:
+    kvm: true
+  when: not functionality_kvm.rc
+
+- set_fact:
+    virtualbox: true
+  when: not functionality_virtualbox.rc
+
+
+# - debug:
+#     msg: "{{virt_type_kvm}} is Set: {{kvm}}"

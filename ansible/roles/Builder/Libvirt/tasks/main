@@ -1,6 +1,9 @@
 ---
 
-- include_tasks: init
-  vars:
-    plugin: libvirt
-    creates: "packer-plugin-{{plugin}}"
+# - include_tasks: init
+#   vars:
+#     plugin: libvirt
+#     creates: "packer-plugin-{{plugin}}"
+
+- debug:
+    msg: "Installing Packer.libvirt!"

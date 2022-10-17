@@ -1,0 +1,21 @@
+---
+- ansible.builtin.stat:
+    path: "/home/{{ansible_user}}/.config/packer/plugins/github.com/hashicorp/{{plugin}}"
+  register: this
+
+- name: Copy template
+  ansible.builtin.copy:
+    src: "{{plugin}}.pkr.hcl"
+    dest: "/home/{{ansible_user}}/"
+  when: not (this.stat.isdir is defined and this.stat.isdir)
+
+- name: Initialize Packer configuration
+  command: packer init .
+  args:
+    chdir: "/home/{{ansible_user}}/"
+    creates: "/home/{{ansible_user}}/.config/packer/plugins/github.com/hashicorp/{{plugin}}/packer-plugin-{{plugin}}*"
+
+- name: Remove template
+  ansible.builtin.file:
+    path: "/home/{{ansible_user}}/{{plugin}}.pkr.hcl"
+    state: absent

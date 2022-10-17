@@ -1,0 +1,5 @@
+---
+
+- include_tasks: init
+  vars:
+    plugin: openstack

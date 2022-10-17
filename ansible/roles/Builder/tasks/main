@@ -1,10 +1,15 @@
 ---
 - include_tasks: get functionality
+  when: autoconfg
 
-- include_role:
-    name: Builder/Docker
-  when: ansible_system == "Linux"
-
+# - include_role:
+#     name: Builder/Docker
+#   when: ansible_system == "Linux"
+#
 - include_role:
     name: Builder/Libvirt
-  when: ansible_system == "Linux" and virt_host_type == "kvm"
+  when: ansible_system == "Linux" and (kvm or xen)
+
+- include_role:
+    name: Builder/VirtualBox
+  when: ansible_system == "Linux" and virtualbox
