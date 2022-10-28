@@ -1,0 +1,18 @@
+---
+# Taken directly from the install guide! https://developer.hashicorp.com/packer/tutorials/docker-get-started/get-started-install-cli
+
+- name: Alt repo method
+  block:
+  - name: Install dnf config-manager to manage your repositories.
+    ansible.builtin.dnf:
+      name:
+        - dnf-plugins-core
+      state: latest
+    become: true
+
+  - name: Add repository manually, alt
+    become: true
+    ansible.builtin.command: dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+    args:
+      creates: /etc/yum.repos.d/hashicorp.repo
+  when: alt_repo_manager
