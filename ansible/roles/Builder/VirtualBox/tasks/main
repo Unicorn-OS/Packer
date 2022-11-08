@@ -1,5 +1,5 @@
 ---
 
-- include_tasks: init
+- include_tasks: install plugin
   vars:
     plugin: virtualbox

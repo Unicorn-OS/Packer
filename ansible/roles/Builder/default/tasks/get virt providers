@@ -1,0 +1,20 @@
+---
+- name: get Docker
+  command: "which docker"
+  register: docker
+  failed_when: false
+
+- name: get KVM
+  command: "which qemu-system-{{ansible_architecture}}"
+  register: kvm
+  failed_when: false
+
+- name: get Xen
+  command: "which xen-system-{{ansible_architecture}}"
+  register: xen
+  failed_when: false
+
+- name: get VirtualBox
+  command: "which virtualbox"
+  register: virtualbox
+  failed_when: false

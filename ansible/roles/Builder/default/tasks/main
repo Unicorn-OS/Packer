@@ -1,0 +1,15 @@
+---
+- include_tasks: get virt providers
+  when: autoconfg
+
+- include_role:
+    name: Builder/Docker
+  when: (docker.rc ==0) and ansible_system == "Linux"
+
+- include_role:
+    name: Builder/Libvirt
+  when: ((kvm.rc == 0) or (xen.rc == 0)) and ansible_system == "Linux"
+
+- include_role:
+    name: Builder/VirtualBox
+  when: (virtualbox.rc == 0) and ansible_system == "Linux"
