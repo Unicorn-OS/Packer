@@ -1,4 +1,6 @@
 ---
+- include_tasks: "set Ubuntu version"
+
 - include_tasks: "{{source}}"
   args:
     apply:
