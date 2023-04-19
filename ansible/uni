@@ -1,5 +1,5 @@
 ---
-- hosts: local #, fedora, ubuntu
+- hosts: fedora #, ubuntu, local
   gather_facts: yes
   vars:
     source: "official repo"
@@ -7,4 +7,4 @@
 
   roles:
   - Packer/default
-  - Builder/default
+  # - Builder/default

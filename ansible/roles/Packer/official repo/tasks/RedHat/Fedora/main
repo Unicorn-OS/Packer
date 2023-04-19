@@ -1,6 +1,7 @@
 ---
 
 - name: Add repository, default
+  become: true
   ansible.builtin.yum_repository:
     name: hashicorp
     description: packer repo

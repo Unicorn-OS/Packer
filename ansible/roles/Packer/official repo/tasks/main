@@ -1,4 +1,5 @@
 ---
-- include_tasks: '{{ ansible_os_family }}/{{ ansible_distribution }}/main'
-
+# Install packer from Official repo!
 # https://learn.hashicorp.com/tutorials/packer/get-started-install-cli
+
+- include_tasks: '{{ ansible_os_family }}/{{ ansible_distribution }}/main'
