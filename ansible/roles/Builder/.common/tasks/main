@@ -1,0 +1,15 @@
+---
+
+- shell: "basename {{role_path}} | tr '[:upper:]' '[:lower:]'"
+  register: basenameLower
+
+- ansible.builtin.set_fact:
+    thisRoleLower: "{{basenameLower.stdout}}"
+
+- debug:
+    msg: "Installing Packer.{{thisRoleLower}}!"
+
+- include_tasks: install plugin
+  vars:
+    plugin: "{{thisRoleLower}}"
+    creates: "packer-plugin-{{plugin}}"

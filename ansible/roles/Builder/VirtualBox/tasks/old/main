@@ -2,4 +2,4 @@
 
 - include_tasks: install plugin
   vars:
-    plugin: openstack
+    plugin: virtualbox

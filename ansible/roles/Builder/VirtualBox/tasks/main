@@ -1,5 +1,1 @@
----
-
-- include_tasks: install plugin
-  vars:
-    plugin: virtualbox
+../../.common/tasks/main

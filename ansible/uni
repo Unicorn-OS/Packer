@@ -6,5 +6,5 @@
     autoconfg: true # Detect host functionality and install plugins automatically!
 
   roles:
-  - Packer/default
-  # - Builder/default
+  # - Packer/default
+  - Builder/default

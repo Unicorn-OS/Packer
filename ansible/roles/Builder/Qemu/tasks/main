@@ -1,6 +1,6 @@
 ---
 
-- include_tasks: init
+- include_tasks: install plugin
   vars:
     plugin: qemu
     creates: "packer-plugin-{{plugin}}"
