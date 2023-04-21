@@ -1,20 +1,19 @@
 ---
+# Install packer from Official repo
 # https://developer.hashicorp.com/packer/downloads
 
-- name: Add repository, default
+- name: prerequisite
   become: true
-  ansible.builtin.yum_repository:
-    name: hashicorp
-    description: packer repo
-    baseurl: https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
-  when: not (ansible_distribution_major_version | int == Fedora_Beta)
+  ansible.builtin.dnf:
+    name: dnf-plugins-core
+    state: latest
 
-- name: Add repository, If Fedora_Beta
+# Will NOT work with yum_repository! https://github.com/ansible/ansible/issues/46963
+- name: Add repository manually, alt
   become: true
-  ansible.builtin.template:
-    src: Fedora_Beta-hashicorp.repo.j2
-    dest: /etc/yum.repos.d/hashicorp.repo
-  when: ansible_distribution_major_version | int == Fedora_Beta
+  ansible.builtin.command: dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+  args:
+    creates: /etc/yum.repos.d/hashicorp.repo
 
 - name: Install Packer
   become: true

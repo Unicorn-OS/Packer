@@ -2,9 +2,8 @@
 - hosts: fedora #, ubuntu, local
   gather_facts: yes
   vars:
-    source: "official repo"
     autoconfg: true # Detect host functionality and install plugins automatically!
 
   roles:
-  # - Packer/default
-  - Builder/default
+  - Packer
+  # - Builder/default
