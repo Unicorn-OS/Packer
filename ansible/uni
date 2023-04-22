@@ -6,4 +6,6 @@
 
   roles:
   - Packer
+# Some repos like 'chef/bento' have their own Builder install script, and this role can be skipped if using those
   # - Builder/default
+
