@@ -1,5 +1,5 @@
 ---
-- hosts: fedora #, ubuntu, local
+- hosts: local #, fedora, ubuntu
   gather_facts: yes
   vars:
     autoconfg: true # Detect host functionality and install plugins automatically!
