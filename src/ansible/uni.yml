@@ -2,11 +2,12 @@
   vars:
     # Host_vars
     ansible_become_password: u
-    ansible_user: "{{lookup('ansible.builtin.env', 'USER')}}"
+    ansible_user: "{{ lookup('ansible.builtin.env', 'USER') }}"
     autoconfg: true # Detect host functionality and install plugins automatically!
 
   roles:
   - Packer
+
 # Some repos like 'chef/bento' have their own Builder install script, and this role can be skipped if using those
   # - Builder/default
 
