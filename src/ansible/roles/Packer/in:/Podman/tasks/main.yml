@@ -9,13 +9,16 @@
     group: "{{ ansible_env.USER }}"
   become: true
 
+# https://developer.hashicorp.com/packer/install
 - name: Dockerfile
   ansible.builtin.blockinfile:
     path: "{{ docker_dir }}/Dockerfile"
     create: true
     block: |
       FROM docker://registry.fedoraproject.org/fedora:{{ podman_fedora_version }}
-      RUN dnf install -y packer
+      RUN dnf install -y dnf-plugins-core
+      RUN dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+      RUN dnf -y install packer
       CMD [ "/bin/bash" ]
 
 - name: Build image
