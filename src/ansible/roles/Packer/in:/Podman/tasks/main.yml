@@ -21,7 +21,7 @@
 - name: Build image
   containers.podman.podman_image:
     name: localhost/packer-container:latest
-    path: "{{ docker_dir }}/Dockerfile"
+    path: "{{ docker_dir }}"
 
 - name: Add to shell alias
   ansible.builtin.blockinfile:
