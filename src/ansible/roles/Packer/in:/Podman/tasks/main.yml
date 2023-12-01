@@ -28,6 +28,12 @@
     path: "{{ docker_dir }}"
     state: build
     force: "{{ rebuild_podman }}"
+    build:
+      rm: true
+
+- debug:
+    msg: "Rebuild podman: {{ rebuild_podman }}"
+  when: rebuild_podman
 
 - name: Add to shell alias
   ansible.builtin.blockinfile:
