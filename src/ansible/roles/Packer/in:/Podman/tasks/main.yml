@@ -47,4 +47,4 @@
         --privileged \
         --security-opt label=disable \
         --entrypoint /usr/bin/packer \
-        localhost/vagrant-container:latest'
+        localhost/packer-container:latest'
