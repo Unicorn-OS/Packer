@@ -4,6 +4,7 @@
     ansible_become_password: u
     ansible_user: "{{ lookup('ansible.builtin.env', 'USER') }}"
     autoconfg: true # Detect host functionality and install plugins automatically!
+    rebuild_podman: true
 
   roles:
   - Packer

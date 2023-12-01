@@ -15,22 +15,27 @@
     path: "{{ docker_dir }}/Dockerfile"
     create: true
     block: |
-      FROM docker://registry.fedoraproject.org/fedora:{{ podman_fedora_version }}
+      FROM docker://registry.fedoraproject.org/fedora:latest
       RUN dnf install -y dnf-plugins-core
       RUN dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
       RUN dnf -y install packer
       CMD [ "/bin/bash" ]
+  #FROM docker://registry.fedoraproject.org/fedora:{{ podman_fedora_version }}
 
 - name: Build image
   containers.podman.podman_image:
     name: localhost/packer-container:latest
     path: "{{ docker_dir }}"
+    state: build
+    force: "{{ rebuild_podman }}"
 
 - name: Add to shell alias
   ansible.builtin.blockinfile:
     path: "{{ ansible_env.HOME }}/.bashrc"
     append_newline: true
     prepend_newline: true
+    marker_begin: "podman Packer BEGIN"
+    marker_end: "podman Packer END"
     create: true
     block: |
       alias packer='podman run --rm -it \
