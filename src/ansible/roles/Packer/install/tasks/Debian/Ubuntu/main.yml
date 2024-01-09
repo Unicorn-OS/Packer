@@ -1,0 +1,6 @@
+- include_tasks: "set Ubuntu version.yml"
+
+- include_tasks: "{{ ubuntu_source }}.yml"
+  args:
+    apply:
+      become: yes

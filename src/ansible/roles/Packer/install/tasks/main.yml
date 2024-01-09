@@ -1,2 +1,2 @@
-- name: OS specific
-  include_tasks: '{{ ansible_os_family }}/{{ ansible_distribution }}/main.yml'
+- name: OS family
+  include_tasks: '{{ ansible_os_family }}/main.yml'

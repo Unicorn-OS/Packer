@@ -17,7 +17,6 @@
   apt:
     pkg:
     - packer
-    -
   become: true
 
 - name: Install Vagrant for libvirt
