@@ -1,4 +1,0 @@
-- name: in.Podman
-  ansible.builtin.include_role:
-    name: Packer/in:/Podman
-  when: in_podman

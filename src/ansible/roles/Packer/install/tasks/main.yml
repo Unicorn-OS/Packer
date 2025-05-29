@@ -1,2 +1,0 @@
-- name: OS family
-  include_tasks: '{{ ansible_os_family }}/main.yml'
