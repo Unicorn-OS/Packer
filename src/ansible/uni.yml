@@ -3,7 +3,7 @@
     in_podman: false
 
   roles:
-  - ansible-role-Packer
+  - dev/ansible-role-Packer
   # - UniInc.Packer
 
 # Some repos like 'chef/bento' have their own Builder install script, and this role can be skipped if using those

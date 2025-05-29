@@ -3,3 +3,6 @@ roles:
 - UniInc.Podman
 - UniInc.Packer
 - UniInc.Packer-in-Podman
+- UniInc.Vagrant
+- UniInc.Vagrant-Libvirt
+- UniInc.Vagrant-LXD
