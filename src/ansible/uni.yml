@@ -1,14 +1,10 @@
 - hosts: localhost #, fedora, ubuntu
   vars:
-    # Host_vars
-    ansible_become_password: u
-    ansible_user: "{{ lookup('ansible.builtin.env', 'USER') }}"
-    autoconfg: true # Detect host functionality and install plugins automatically!
-    rebuild_podman: true
     in_podman: false
 
   roles:
-  - Packer
+  - ansible-role-Packer
+  # - UniInc.Packer
 
 # Some repos like 'chef/bento' have their own Builder install script, and this role can be skipped if using those
   # - Builder/default
